@@ -56,3 +56,43 @@ Our Labs today will walk through the steps to learn how SMG uses the power of Cl
       * Materialized Views - improve performance
       * Monitor, report, kill queries that run amuck, etc…
    * Develop Rich Visualizations for Analysts & Engineers to use insights - more on Cloudera Data Viz
+
+## Introduction to the Lab Data
+
+For the following Workshop Hands On Labs, we will dive into this Scenario to show Cloudera Data Warehouse (CDW) is used to enable SMG to gain a competitive advantage - and at the same time, it highlights the performance and automation capabilities that help ensure performance is maintained while controlling costs.
+
+The Hands On Labs will take you through how to use the Cloudera Data Warehouse service to quickly explore raw data, create curated versions of the data for simple reporting and dashboarding, and then scale up usage of the curated data by exposing it to more users.
+
+ER - Diagram of the demo Data Lakehouse: 
+
+- **Fact table:** flights (86M rows) 
+- **Dimension tables:** airlines (1.5k rows), airports (3.3k rows) and planes (5k rows)
+
+![.png](images/.png)
+
+Self Service data file - Passenger Ticket manifest: 
+
+- This is a CSV file with 1,000 records
+- Each record represents a unique Passenger Ticket with 2 Flight Legs
+- It contains the following schema
+
+ticketnumber BIGINT
+leg1flightnum BIGINT
+leg1uniquecarrier STRING
+leg1origin STRING
+leg1dest STRING\
+leg1month BIGINT
+leg1dayofmonth BIGINT
+leg1dayofweek BIGINT
+leg1deptime BIGINT
+leg1arrtime BIGINT
+leg2flightnum BIGINT
+leg2uniquecarrier STRING
+leg2origin STRING
+leg2dest STRING
+leg2month BIGINT
+leg2dayofmonth BIGINT
+leg2dayofweek BIGINT
+leg2deptime BIGINT
+leg2arrtime BIGINT
+
