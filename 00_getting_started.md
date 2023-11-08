@@ -31,7 +31,7 @@ In this Lab you will login to CDP and complete your user setup.
 
 2. On the HOME page of CDP you will see all of the Services available to you
 
-![](https://lh7-us.googleusercontent.com/eV-p09JvPP2KRhdeEOKqIrC5fX8CEDgAmM1CoeHWD1CsZXYN6d2VfUoNuoAypUV9-j9vYieja7Ydloz-GAYB1Oa8Dr8iVbCC6IN-OaDs_8wjaHGjfIxQE2Bd2ePoJsHrYpcRQK4GPD-I3MjjdVRKA5E)
+![](images/2.png)
 
 - Multi-function analytics - Data Services; today we’ll just focus on the Cloudera Data Warehouse Data Service
 
@@ -43,6 +43,6 @@ In this Lab you will login to CDP and complete your user setup.
 
 - However, Cloudera provides other services such as Data Catalog, Replication Manager, Workload Manager, and Management Console provide continuity and functionality throughout the platform.
 
-![](https://lh7-us.googleusercontent.com/3Tn0lxTif3CdZD5gATHgN0AT7sLSXlxFGDxapkc_saqNY0_XAaYatzqY2l12WZLtOkN1CNEV8XomLt1xkGu4378I7rfDZ74OnYc0PVWhQKUZpNoWCDF-Dy6pIGWy_jEXimJcpjkOYjpsq4bVDAVlpPE)
+![](images/3.png)
 
 Note: The platform removes the necessity to spend unnecessarily on integration tax, where other solutions combine various pieces together in the ability to provide continuity and functionality throughout an end-to-end use case but this is difficult because it introduces many moving parts.
