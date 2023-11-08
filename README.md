@@ -68,7 +68,7 @@ ER - Diagram of the demo Data Lakehouse: 
 - **Fact table:** flights (86M rows) 
 - **Dimension tables:** airlines (1.5k rows), airports (3.3k rows) and planes (5k rows)
 
-![.png](images/.png)
+![Airlines ERD](images/airlines_erd.png)
 
 Self Service data file - Passenger Ticket manifest: 
 
