@@ -1,16 +1,18 @@
-## Lab Setup
+## Getting Started
 
-Workshop Attendees will be provided with a Login.  Please enter your details below for reference throughout these lab exercises.
+### Lab Setup
+
+Workshop Attendees will be provided with a Login.  Please enter your details below for reference throughout these lab exercises.
 
 - Lab Group #: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ (this will be your breakout room number)
 
-  - You will use this to replace the “**#**” within the lab exercises with the number you enter here
+  - You will use this to replace the "**#**" within the lab exercises with the number you enter here
 
-- URL: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ 
+- URL: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
   - Use Incognito Browser window
 
-- Login: 
+- Login:
 
   - **User:** \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
   - **Password:** \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
@@ -21,7 +23,7 @@ In the labs when you see:
 - ${bucket} - this will indicate to use the bucket provided to you
 
 
-## Get Started - Log into CDP
+### Get Started - Log into CDP
 
 In this Lab you will login to CDP and complete your user setup.
 
@@ -33,9 +35,9 @@ In this Lab you will login to CDP and complete your user setup.
 
 ![](images/2.png)
 
-- Multi-function analytics - Data Services; today we’ll just focus on the Cloudera Data Warehouse Data Service
+- Multi-function analytics - Data Services; today we'll just focus on the Cloudera Data Warehouse Data Service
 
-- There are other Data Services that usually are part of an Analytic use case 
+- There are other Data Services that usually are part of an Analytic use case
 
   - Data Flow - for data ingestion needs
   - Data Engineering - for ELT/ETL, transformations, data wrangling, etc.
