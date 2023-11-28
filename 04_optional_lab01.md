@@ -1,28 +1,31 @@
-## Optional Lab 1 - CDW Tour
+## Optional Lab 1 - Cloudera Data Warehouse (CDW) Tour
 
-In this Lab you will explore how to take advantage of CDW.
+In this Lab you will explore how to take advantage of CDW data service.
 
-14. Click on the “Get Started with a Tour” at the top of the CDP Home screen
+1. Click on the `Get Started with a Tour` at the top of the CDP Home screen
 
-![](https://lh7-us.googleusercontent.com/eV-p09JvPP2KRhdeEOKqIrC5fX8CEDgAmM1CoeHWD1CsZXYN6d2VfUoNuoAypUV9-j9vYieja7Ydloz-GAYB1Oa8Dr8iVbCC6IN-OaDs_8wjaHGjfIxQE2Bd2ePoJsHrYpcRQK4GPD-I3MjjdVRKA5E)
+  ![](images/2.png)
 
-15. \[Optional] Watch the “Test Drive” Video on the CDP Home screen (video is \~3 minutes)
+2. **[Optional]** Watch the ***Test Drive*** Video on the CDP Home screen (Note: Video is ~3 minutes)
 
-![](https://lh7-us.googleusercontent.com/y_ezSkAEXbdZTjZTxYi757EhtjeCTUJh3B-b954pHB3wSApV8NAdUtfjs4MMj0To6SUoxtW7Q8EA7HYJiGzgmlKPEikMHUtdnGaOfUbG95uQ7P32bd--Ir52ykugajo5LZ0cRlJ_ktFa1KfgiBEEyzE)
+  ![](images/140.png)
 
-16. Click on the “Let’s go” button at the bottom of the video, you can take tours of any of the Data Services
-17. Click on the Data Warehouse tour tile
+3. Click on the “Let’s go” button at the bottom of the video, you can take tours of any of the Data Services
 
-![](https://lh7-us.googleusercontent.com/fOyE5DHBw_OXtNQTtVkEs5F6suK7QBCorpN8eQrP9pAIKbzh7IE_vcrzZWA0RH7cgYeaypwUwAzotVldsITAwarb_UtRuqjlxCsj_UZna0FuUjM5pBOWB550QAKRzgfqnLAw9rDSWthj32wTjC4e0DM)
+4. Click on the **Data Warehouse** product tour tile
 
-- Here you see the content you can take advantage of - there are 3 tiles where you can watch videos on an area of interest, you will see a “> Video” link on the tile if this is a video, and there is also a tour.
+  ![](images/141.png)
 
-![](https://lh7-us.googleusercontent.com/h7V5yuSEeA8KUW7vWg6c0iW0gKKTBmR15VZO5ZljYYP6GCFho6iDAahnTdry_oPQFXz9gJX-vPI4fc2d87xFuZPJpfBSUbypW9paJ0M43wuLQ0f6PsjSljOh6PSWmWzRdLK3mflKaSZPKtCzCYml2Vg)
+  - Here you see the content you can take advantage of
+  - There are 3 tiles where you can watch videos on an area of interest
+  - You will see a `> Video` link on the tile if a video is available
 
-- Click on the “Data Warehouse Overview” tile, this is a click through tour of CDW
+  ![](images/142.png)
 
-  - Perform all of the actions for this click through tour (\~5 minutes)
-  - Once completed click on the “X” in the top right corner to close the window 
+5. Click on the “Data Warehouse Overview” tile. This is a click-thru tour of CDW
 
-18. On the Product Tours screen, explore the various topics to learn mover about Cloudera Data Warehouse
+    - Perform all of the actions for this click through tour (\~5 minutes)
+    - Once completed, click on the `X` in the top right corner to close the window 
+
+6. On the Product Tours screen, explore the various topics to learn more about Cloudera Data Warehouse
 
