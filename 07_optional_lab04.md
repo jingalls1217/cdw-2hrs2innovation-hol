@@ -1,409 +1,501 @@
-## Optional Lab 4 - Data Visualization
+## Optional Lab 4 - Cloudera Data Visualization (CDV)
 
-In this lab you will build a Logistics Dashboard using Cloudera Data Visualization.  The Dashboard will include details about flight delays and cancellations.  This will be a completely new use case independent of the SMG Use Case, the analysis could be a catalyst to lead to a Data Science application to predict the probability of a flight being canceled or not.
+In this lab you will build a Logistics Dashboard using Cloudera Data Visualization. The Dashboard will include details about flight delays and cancellations. This will be a completely new use case, independent of the SMG use case. The analysis could be a catalyst, leading to a Data Science application and predicting the probability of a flight being canceled or not.
 
-21. Open Cloudera Data Visualization (CDV or Data Viz)
+### Open the CDV Application
 
-    - Go to browser tab with CDW open
-    - On the left navigation panel click “Data Visualization”
-    - On the row with airlines-cdv, click the Data VIZ button
+1. Open the web browser tab with CDW open
 
-![](images/171.png)
+2. On the left navigation panel, click `Data Visualization`
+  
+3. On the row with airlines-cdv, click the Data ViZ button to the right
 
-- If you see the “What’s New” page, you can read it, or click on the GOT IT button
+  ![](images/171.png)
 
-22. Home page
+4. If you see the `What’s New` page, you can read it, or click on the `GOT IT` button to continue
 
-![](images/172.png)
+### Getting Familiar with the CDV Home Page
 
-- There are 4 areas of CDV - HOME, SQL, VISUALS, DATA - these are the tabs at the top of the screen in the black bar to the right of the Cloudera Data Visualization banner
+Once you haves successfully opened a CDV instance, you should see the following CDV home page.
 
-  - Home - this is the starting point; it shows some statistics at the top, followed by some quick access details to recent content - Queries, Connections, Datasets, and Dashboards
-  - SQL - allows you to manually build queries against data to perform quick discovery against the data.  Below is an example of a query that was built and Run
+  ![](images/172.png)
 
-![](images/173.png)
+There are 4 main areas of CDV, shown as tabs at the top of the screen in the black bar to the right of the Cloudera Data Visualization banner:
+  
+  - HOME
+  - SQL
+  - VISUALS
+  - DATA 
 
-- Visuals - an area for viewing/building/modifying visuals, dashboards, and applications
+**HOME** - this is the starting point; it shows some statistics at the top, followed by some quick access details to recent content - Queries, Connections, Datasets, and Dashboards
+  
+**SQL** - allows you to manually build queries against data to perform quick discovery against the data.  Below is an example of a query that was built and Run
+
+  ![](images/173.png)
+
+**VISUALS** - an area for viewing/building/modifying visuals, dashboards, and applications
 
 ![](images/174.png)
 
-- Data - interface for access to datasets, connections, and the Connection Explorer
+**DATA** - interface for access to datasets, connections, and the Connection Explorer
 
-23. Build a Dataset (aka. Metadata Layer or Data Model) - click on DATA in the top banner.  A Dataset is a Semantic Layer where you can create a business view on top of the data - data is not copied; this is just a logical layer
+### Build a Dataset (aka. Metadata Layer or Data Model)
 
-![](images/175.png)
+1. Click on DATA in the top banner. A Dataset is a Semantic Layer where you can create a business view on top of the data - data is not copied; this is just a logical layer
 
-- Create a connection - click on the NEW CONNECTION button on the left menu
+    ![](images/175.png)
 
-![](images/176.png)
+2. Create a connection - click on the `NEW CONNECTION` button on the left menu and enter the following:
 
-- Connection type - select CDW Impala
-- Name - **\<user\_id>**-airlines-lakehouse
-- CDW Warehouse - select drop down and pick the airlines-impala-vw
-- For this lab each participant will create their own connection in the same Data Viz instance, this would not be normal, you would only have to create a single connection to the same Virtual Warehouse
-- Click on the Advanced tab  in the middle of the screen, you can see that the details are already populated, there is nothing more to do.  If certain settings were required you could change them here.
-- Click CONNECT button, to create the Connection
-- You will see your connection in the list of connections on the left menu
+    - **Connection type:** `CDW Impala`
 
-![](images/177.png)
+    - **Name:** `<user_id>-airlines-lakehouse`
 
-- On the right side of the screen you will see Datasets and the Connection Explorer
+    - **CDW Warehouse:** `airlines-impala-vw`
 
-![](images/178.png)
+    ![](images/176.png)
 
-- Create a new Dataset (aka. Metadata Layer or Data Model)
+  - For this lab, each participant will create their own connection in the same Data Viz instance. Normally, you would only have to create a single connection to the same Virtual Warehouse.
 
-  - Click on NEW DATASET button
+3. Click on the `Advanced` tab in the middle of the screen. As you can see, the details are already populated and there is nothing more to do. If certain settings were required, you could change them here.
 
-![](images/179.png)
+4. Click the `CONNECT` button to create the Connection
 
-- Dataset title - **airline\_logistics**
-- Dataset Source - select From Table (however, you could choose to directly enter a SQL statement instead)
-- Select Database - **\<user\_id>**\_airlines
-- Select Table - flights
-- Click CREATE
+    - You will see your connection in the list of connections on the left menu
 
-![](images/180.png)
+      ![](images/177.png)
 
-- Edit the Dataset - click on airline\_logistics on the right of the screen.  This will open the details page, showing you information about the Dataset, such as connection details, and options that are set
+    - On the right side of the screen you will see Datasets and the Connection Explorer
 
-![](images/181.png)
+      ![](images/178.png)
 
-- On the left menu click on Fields - let’s quickly see what was created by adding the flights table to the Dataset.  When this table was added it took the table’s metadata and add the columns as Fields.  (we’ll come back to this later)
+5. Click on the `NEW DATASET` button to create a new Dataset (aka. Metadata Layer or Data Model) and enter the following into the form:
 
-![](images/182.png)     ![](images/183.png)
+    - **Dataset title:** `airline_logistics`
 
-- Click on Data Model - for our Dataset we need to join additional data to the flights table including the planes, airlines, and airports tables
-- Click on EDIT DATA MODEL button
+    - **Dataset Source:** `From Table` (Note: You could choose to directly enter a SQL statement instead)
 
-![](images/184.png)
+    - **Select Database:** `<user_id>_airlines`
 
-- Join planes - click the “+” button next to flights
+    - **Select Table:** `flights`
+    
+    - Click the `CREATE` button
 
-![](images/185.png)
+    ![](images/179.png)
 
-Database Name - **\<user\_id>**\_airlines
+  - Once created, your new dataset will now be listed.
 
-Table Name - planes
+    ![](images/180.png)
 
-Click SELECT button
+### Edit the Dataset
 
-![](images/186.png)
+1. Click on `airline_logistics` on the right of the screen. This will open the details page, showing you information about the Dataset, such as connection details, and options that are set.
 
-Click the ![](images/187.png) (JOIN) between flights and planes to see the join that was created
+    ![](images/181.png)
 
-Click EDIT JOIN to modify the join as there is an extra join of year=year
+2. Click on `Fields` in the left navigation menu
 
-Click on the - to the right of the year=year join and click the APPLY button
+    - Let’s quickly see what was created by adding the flights table to the Dataset.
 
-![](images/188.png) should be >>> ![](images/189.png)
+    - When this table was added, it took the table’s metadata and add the columns as Fields (More on this later)
 
-- Join airlines - click the “+” button next to flights
+    ![](images/182.png)
+    
+    ![](images/183.png)
 
-![](images/190.png)
+3. Click on `Data Model` in the left navigation menu
 
-Database Name - **\<user\_id>**\_airlines
+    - For our Dataset, we need to join additional data to the flights table, including the planes, airlines, and airports tables
 
-Table Name - airlines
+4. Click on the `EDIT DATA MODEL` button
 
-Click SELECT button
+    ![](images/184.png)
 
-![](images/191.png) >>> ![](images/192.png)
+5. Click the `+` button next to `flights`. We are going to join the `planes` table to the `flights` table
 
-Click the ![](images/187.png) (JOIN) between flights and airlines to see the join that was created
+    - Select the following in the **Table Browser** form: 
 
-Click EDIT JOIN to modify the join
+      - **Database Name:** `<user_id>_airlines`
 
-Click on uniquecarrier under flights & code under airlines and click the APPLY button
+      - **Table Name:** `planes`
 
-- Join airports (origin airport) - click the “+” button next to flights
+      - Click the `SELECT` button
 
-![](images/194.png)
+       ![](images/185.png)
 
-Database Name - **\<user\_id>**\_airlines
+6. Click the ![](images/187.png) (JOIN) between `flights` and `planes` to see the join that was created 
 
-Table Name - airports
+    ![](images/186.png)
 
-Click SELECT button
+7. Click `EDIT JOIN` to modify the join as there is an extra join of year=year
 
-![](images/195.png)
+8. Click on the `-` (MINUS) to the right of the year=year join, then click the `APPLY` button
 
-Click the ![](images/187.png) (JOIN) between flights and airports to see the join that was created
+    ![](images/188.png)
 
-Click EDIT JOIN to modify the join
+    - Removing the `year=year` join should look like   
 
-Click on origin under flights & iata under airports and click the APPLY button
+      ![](images/189.png)
 
-- Join airports (destination airport) - click the “+” button next to flights
+9. Click the `+` button next to `flights`. We are going to join the `airlines` table to the `flights` table.
 
-![](images/197.png)
+    - Select the following in the **Table Browser** form: 
 
-Database Name - **\<user\_id>**\_airlines
+      - **Database Name:** `<user_id>_airlines`
 
-Table Name - airports
+      - **Table Name:** `airlines`
 
-Click SELECT button
+      - Click the `SELECT` button
 
-![](images/198.png)
+      ![](images/190.png)
 
-Click the ![](images/187.png) (JOIN) between flights and airports\_1 to see the join that was created
+10. Click the ![](images/187.png) (JOIN) between `flights` and `airlines` to see the join that was created
 
-Click EDIT JOIN to modify the join
+11. Click `EDIT JOIN` to modify the join
 
-Click on the dest under flights & iata under airports and click the APPLY button
+    ![](images/191.png)
 
-- The final Data Model will look like the following…
+12. Select `uniquecarrier` under `<user_id>_airlines.flights` and `code` under `<user_id>_airlines.airlines`, then click the `APPLY` button
 
-![](images/200.png)
+    ![](images/192.png)
 
-- Click on the SHOW DATA button to preview the data that will be returned by the model created so far
+13. Click the `+` button next to `flights`. We are going to join the `airports` table to the `flights` table.
 
-![](images/201.png)
+    - Select the following in the **Table Browser** form: 
 
-- Click on the SAVE button
+      - **Database Name:** `<user_id>_airlines`
 
-<!---->
+      - **Table Name:** `airports`
 
-- Modify Fields - click on Fields in the left menu
+      - Click the `SELECT` button
 
-![](images/202.png)
+    ![](images/194.png)
 
-- Click on the EDIT FIELDS button; you will see this new tool bar
+14. Click the ![](images/187.png) (JOIN) between `flights` and `airports` to see the join that was created
 
-![](images/203.png)
+15. Click `EDIT JOIN` to modify the join
 
-- Click on the TITLE CASE button to format the display names of the fields
-- Under the Measures section, click on the Mes button next to month.  This changes this to a Dimension.
+16. Select `origin` under `<user_id>_airlines.flights` & `iata` under `<user_id>_airlines.airports`, then click the `APPLY` button
 
-![](images/204.png)
+    ![](images/195.png)
 
-- Each Field is assigned a Category (Measure or Dimension) - this is important because the type is used when creating visuals.  CDV will use the data type to determine this Category.  Make sure that Fields fall into the correct Category.  This is important because this is used when creating visuals.  The way to look at choosing the Category is to use this simple method - if you need to Aggregate (sum, average, etc.) then the Field should be a Measure.  The quickest way to change the Category is to use the toggle
+17. Click the `+` button next to `flights`. We are going to join the `airports` table (destination) to the `flights` table.
 
-<!---->
+    - Select the following in the **Table Browser** form: 
 
-- Under the Measures section, click on the Mes button next to the following Fields:
+      - **Database Name:** `<user_id>_airlines`
 
-  - Under Measures > flights
+      - **Table Name:** `airports`
 
-    - Dayofmonth
-    - Dayofweek
-    - Deptime
-    - Crsdeptime
-    - Arrtime
-    - Crsarrtime
-    - Flightnum
-    - Year
+      - Click the `SELECT` button
 
-  - All Fields under Measures > planes
+    ![](images/197.png)
 
-  - All Fields under Measures > airports
+18. Click the ![](images/187.png) (JOIN) between `flights` and `airports_1` to see the join that was created
 
-  - All Fields under Measures > airports\_1
+19. Click `EDIT JOIN` to modify the join
 
-- **Note:** Normally, we would make sure that all Fields fall into the correct Category, instead let’s move ahead
+20. Select `dest` under `<user_id>_airlines.flights` and `iata` under `airports_1`, then click the `APPLY` button.
 
-- Edit a Field
+    ![](images/198.png)
 
-  - Click the pencil next to Depdelay under the Measures section to edit the field
+  - The final Data Model will look like the following
 
-<!---->
+      ![](images/200.png)
 
-- Change the Display Name to Dep Delay & change the Default Aggregation to Average
+21. Click on the `SHOW DATA` button to preview the data that will be returned by the model created so far
 
-![](images/205.png)
+    ![](images/201.png)
 
-- Click on the Display Format tab
+22. Click on the SAVE button
 
-  - Select Category of Integer and click on Use 1000 separator
+### Modify Fields
 
-![](images/206.png)
+1. Click on `Fields` in the left navigation menu
 
-- Click APPLY button to save the changes
+    ![](images/202.png)
 
-<!---->
+2. Click on the `EDIT FIELDS` button; you will see this new toolbar
 
-- Add a new Field
+    ![](images/203.png)
 
-  - Clone the Origin Field - click the down arrow next to Origin, select Clone
+3. Click on the `TITLE CASE` button to format the display names of the fields
 
-![](images/207.png)
+4. Click on the `Mes` button next to `Month` under the **Measures** section, changing the field to a Dimension (Dim).
 
-- Click the pencil next to Clone of Origin to edit the field
-- Change Display Name to Route
-- Click on the Expression tab - enter the following into the Expression window
+    ![](images/204.png)
 
-<!---->
+    - Each Field is assigned a Category (Measure or Dimension). This is important because the type is used when creating visuals.
 
+    - CDV will use the data type to determine this Category. Make sure that Fields fall into the correct Category. This is important because this is used when creating visuals.
+
+    - The way to look at choosing the Category is to use this simple method - if you need to Aggregate (sum, average, etc.) then the Field should be a Measure. The quickest way to change the Category is to use the toggle
+
+5. Click on the `Mes` button next to the following Fields under the **Measures** section:
+
+    - Under `Measures` > `flights`
+
+      - Dayofmonth
+      - Dayofweek
+      - Deptime
+      - Crsdeptime
+      - Arrtime
+      - Crsarrtime
+      - Flightnum
+      - Year
+
+    - All Fields under `Measures` > `planes`
+
+    - All Fields under `Measures` > `airports`
+
+    - All Fields under `Measures` > `airports_1`
+
+  - **Note:** Normally, we would make sure that all Fields fall into the correct Category, instead let’s move ahead
+
+### Edit a Field
+
+1. Click the pencil icon next to `Depdelay` under the **Measures** section to edit the field
+
+2. Change the **Display Name** to `Dep Delay` and change the **Default Aggregation** to `Average`
+
+    ![](images/205.png)
+
+3. Click on the **Display Format** tab
+
+4. Select a **Category** of `Integer` and check the `Use 1000 separator` checkbox
+
+    ![](images/206.png)
+
+5. Click `APPLY` button to save the changes
+
+### Add a New Field
+
+1. Click the down arrow next to `Origin` and select `Clone` to clone the `Origin` field.
+
+    ![](images/207.png)
+
+2. Click the pencil icon next to `Clone of Origin` to edit the field
+
+3. Change **Display Name** to `Route`
+
+4. Click on the **Expression** tab and enter the following into the **Expression** window
+
+    ```
     concat([Origin], '-', [Dest])
+    ```
 
-![](images/208.png)
+    ![](images/208.png)
 
-- Click APPLY - since the “Save expression only after validation succeeds” is checked the Field will first be validated to ensure there are no errors then if it is valid will be saved
+5. Click the `APPLY` button
 
-<!---->
+    - Since the `Save expression only after validation succeeds` is checked, the Field will first be validated to ensure there are no errors; then, if it is valid, it will be saved.
 
-- Click the SAVE button
+6. Click the `SAVE` button
 
-24. Create Dashboard - in the top right corner click on the NEW DASHBOARD button
+### Create Dashboard
 
-![](images/209.png)
+1. Click on the `NEW DASHBOARD` button in the top right corner. 
 
-New Dashboard
+    ![](images/209.png)
 
-- Quick Overview the the interface
+    Quick Overview of the **New Dashboard* interface
 
-  - On the right side of the screen there will be a VISUALS menu.  At the top of this menu, there is a series of Visual Types to choose from.  There will be 30+ various visuals to choose from.  Below the Visual Types you will see what are called Shelves.  The Shelves that are present depend on the Visual Type that is selected.  Shelves with a “\*” are required, all other Shelves are optional.  On the far right of the page there is a DATA menu, which identifies the Connection & Dataset used for this visual.  Underneath that is the Fields from the Dataset broken down by Dimensions and Measures.  With each of these Categories you can see that it is subdivided by each Table in the Dataset.
+    - On the right side of the screen there will be a `VISUALS` menu.
+    
+    - At the top of this menu, there is a series of `Visual Types` to choose from (30+ visuals).
+    
+    - Below the `Visual Types`, you will see what are called ***Shelves***.
+    
+      - The Shelves that are present depend on the Visual Type that is selected.
+      
+      - Shelves with a `*` are required, while all other Shelves are optional.
+      
+    - On the far right of the page there is a `DATA` menu, which identifies the Connection & Dataset used for this visual.
+    
+    - Underneath the DATA menu are the Fields from the Dataset broken down by Dimensions and Measures.
+    
+      - With each of these Categories, you can see that it is subdivided by each Table in the Dataset.
 
-|                                                                                                                                                                                                                   |                                                                                                                                                                                                              |                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| **Visual Types**![](images/210.png) | **Shelves**![](images/211.png) | **DATA**![](images/212.png) ![](images/213.png) |
+![](images/CDV_Dashboard_Overview.png)
 
-- 1st Visual - Top 25 Routes by Avg Departure Delay; are there certain Routes with excessive Delays
+### 1st Visual - Top 25 Routes by Avg Departure Delay
 
-  - CDV will add a Table visual displaying a sample of the data from the Dataset as the default visualization when you create a new Dashboard or new Visuals on the Dashboard (see New Dashboard screen above).  The next step is to modify (Edit) the default visualization to suit your needs.  
-  - Pick the Visual Type - select the Stacked Bar chart visual
+  - There are there certain flight routes with excessive delays
 
-![](images/214.png)
+  - CDV will add a Table visual displaying a sample of the data from the Dataset as the default visualization when you create a new Dashboard or new Visuals on the Dashboard (see New Dashboard screen above). The next step is to modify (Edit) the default visualization to suit your needs.  
+    
+1. Choose the **Visual Type** by selecting the `Stacked Bar chart` visual
 
-- Edit the Shelves (two (2) ways to add items to a Shelf, you will use both here; for the remainder of this lab you can pick & choose which you use)
+    ![](images/214.png)
 
-![](images/215.png)
+2. Edit the Shelves
 
-![](images/216.png)
+  - There are two (2) ways to add items to a Shelf. You will use both here. 
+  - Note: For the remainder of this lab you can pick and choose which you use.
 
-- Option 1: Add Route to the X Axis
+    ![](images/215.png)
 
-  - Click in the X Axis Shelf to select it
-  - In the DATA menu find Route under Dimensions > fights
+    ![](images/216.png)
 
-- Option 2: Add Dep Delay to the Y Axis
+**Option 1:** Add Route to the X Axis
 
-  - In the DATA menu find Dep Delay under Measures > flights, Drag & Drop this Field in the Y Axis Shelf
+  - Click in the **X Axis Shelf** to select it
 
-- So the two (2) options for adding items to Shelves is 1) select Shelf and click to add Field; or 2) Drag & Drop Field to Shelf
+  - In the **DATA** menu,find `Route` under `Dimensions` > `flights`
 
-<!---->
+**Option 2:** Add Dep Delay to the Y Axis
 
-- Modify Properties for Dep Delay - click on the > in the Y Axis Shelf to the right of avg(Dep Delay) to access the Properties for this Shelf
+  - In the **DATA** menu, find `Dep Delay` under `Measures` > `flights``, then Drag & Drop this Field in the **Y Axis Shelf**
 
-![](images/217.png)
+To summarize, the two (2) options for adding items to Shelves are:
 
-- Click on the down arrow to the left of Aggregates - in CDV you have control over any behavior, in the Dataset we set the default aggregation for this Field to be Average, however, on any visual you can override this by changing it here.  For now, leave this alone.
+  1. select Shelf and click to add Field, or
+  2. Drag & Drop Field to Shelf
 
-![](images/218.png)
+### Modify Properties for Dep Delay
 
-- Click the down arrow to the left of Order and Top K - to show the 25 Routes with the highest Average Dep Delay enter 25 into the box for “Top K”
+1. Click on the `>` in the **Y Axis Shelf** to the right of `avg(Dep Delay)` to access the Properties for this Shelf
 
-![](images/219.png)
+    ![](images/217.png)
 
-- Click the down arrow to the left of Alias - to change the display name for this Field.  In the box enter Avg Dep Delay
+2. Click on the down arrow to the left of **Aggregates**.
 
-![](images/220.png)
+    - In CDV you have control over any behavior
+    
+    - In the Dataset, we set the default aggregation for this Field to be `Average`; however, on any visual you can override this by changing it here. For now, leave this alone.
 
-- The finished Y Axis Shelf should look like this
+    ![](images/218.png)
 
-![](images/221.png)
+3. Click the down arrow to the left of `Order and Top K`
 
-- Click the ![](images/222.png) button to update the Visual
+4. To show the 25 Routes with the highest **Average Dep Delay**, enter `25` into the box for **Top K**
 
-![](images/223.png)
+    ![](images/219.png)
 
-- Change the Title & Subtitle for this Visual
+5. Click the down arrow to the left of **Alias**
 
-  - Click in the enter Title above the chart and enter - Routes with Highest Avg Departure Delays, hit enter
-  - Click in the Subtitle and enter - In Minutes, hit enter
+6. To change the display name for this Field, enter `Avg Dep Delay` into the **Alias** box.
 
-![](images/224.png)
+    ![](images/220.png)
 
--
+  - The finished Y Axis Shelf should look like this
 
-<!---->
+    ![](images/221.png)
 
-- Add Title & Subtitle for the Dashboard
+7. Click the ![](images/222.png) button to update the Visual
 
-  - Click in the enter Title right below the banner and enter - **\<user\_id>** Logistics Dashboard
-  - Click in the Subtitle and enter - CDW Workshop
+    ![](images/223.png)
 
-![](images/225.png)
+### Change Titles and Subtitles
 
-- Click on the SAVE button to save this Dashboard, this Dashboard is now named **\<user\_id>** Logistics Dashboard
+1. Change the **Title** for the visual by clicking on `enter Title` above the chart and entering `Routes with Highest Avg Departure Delays`, then hit Enter
 
-<!---->
+2. Change the **Subtitle** for the visual by clicking on `enter Subtitle` below the title and entering `In Minutes`, then hit Enter.
 
-- 2nd Visual - Relationship between flight Cancellation reason and Carrier; are there Carriers or Reasons that need to be addressed?
+    ![](images/224.png)
 
-  - Click on +Visuals - on the far right of the screen you will see the DASH. menu.  This menu allows you to add new visuals and change settings for the Dashboard or Visual such as formatting, style, and anything related to the presentation of the data.
+3. Change the **Title** for the dashboard by clicking on `enter Title` right below the top banner and entering `<user_id> Logistics Dashboard`
 
-![](images/226.png)
+4. Change the **Subtitle** for the dashboard by clicking on the Subtitle and entering `CDW Workshop`
 
-- Under ADD VISUALS - leave the ![](images/227.png) (Connection) as \<user\_id>-airlines-lakehouse and ![](images/227.png) (Dataset) as airlines\_logistics.  However, a Dashboard can have any number of connections and Datasets for various visuals on a Dashboard.
+    ![](images/225.png)
 
-![](images/229.png)
+5. Click on the `SAVE` button to save this Dashboard
 
-- This will add a default visual to the canvas
-- Click on the ![](images/230.png) button, next to the Table ![](images/231.png).  Instead of manually building this visual, we will use the Visual helper
+    - This Dashboard is now named `<user\_id> Logistics Dashboard`
 
-![](images/232.png)
+### 2nd Visual - Relationship between flight Cancellation reason and Carrier
 
-- Select Uniquecarrier and Cancellationcode under Dimensions; select Cancelled under Measures.  As you select items from the Fields you will see the Possible Visuals change - helping you quickly select the visual based on what you have selected.
+Are there Carriers or Reasons that need to be addressed?
 
-![](images/233.png)
+1. Click on `+Visuals`
 
-- Click on SEE ALL VISUALS> button - to preview the Possible Visuals with actual data plotted
-- Click on the Correlation flow visual - Scroll thru until you see the Correlation flow visual tile
+    - On the far right of the screen you will see the `DASH.` menu.
+  
+    - This menu allows you to add new visuals and change settings for the Dashboard or Visual such as formatting, style, and anything related to the presentation of the data.
 
-<!---->
+      ![](images/226.png)
 
-- Drag & Drop Cancelled from DATA menu under Measures > flights to the Filter Shelf - There are several ways to apply filters to visuals within the Dashboard, this is one
+2. Under **ADD VISUALS**, leave the ![](images/chain_icon.png) (Connection) as `<user_id>-airlines-lakehouse` and ![](images/blocks_icon.png) (Dataset) as airlines\_logistics.  
 
-  - When the dialog box comes up
+    - This will add a default visual to the canvas
 
-![](images/234.png)
+    - Note: A Dashboard can have any number of connections and Datasets for various visuals on a Dashboard.
 
-- This will filter this chart to only return flights that have been cancelled, and will not return any other data
-- Click the REFRESH VISUAL button
+    ![](images/229.png)
 
-![](images/235.png)
+3. Click on the ![](images/230.png) button next to the Table.
 
-- **NOTICE**: Since there is a security policy still in effect, you will only see “UA” showing up in this visual.  To see all of the Carriers, you could disable the security Policy and Refresh the Visual.
+    ![](images/231.png)
 
-<!---->
+  - Instead of manually building this visual, we will use the Visual helper
 
-- Click ![](images/236.png)in the bottom right corner of the Correlation flow visual and drag it down to resize this chart (make it a bit larger to your liking)
+    ![](images/232.png)
 
-![](images/237.png)
+4. Select `Uniquecarrier` and `Cancellationcode` under **Dimensions**, and select `Cancelled` under **Measures**.
 
-- Click the enter Title and enter Cancellation Correlation, and hit enter
-- Click the SAVE button to save the Dashboard
+    - As you select items from the Fields you will see the Possible Visuals change - helping you quickly select the visual based on what you have selected.
 
-<!---->
+    ![](images/233.png)
 
-- Add prompts - allow dashboard to be sliced & diced; this is another way to filter on multiple charts at the same time in your Dashboard
+5. Click on `SEE ALL VISUALS>` button to preview the Possible Visuals with actual data plotted.
 
-  - On the DASH. menu (far right) click on +Filters button
+6. Click on the **Correlation flow** visual, then scroll thru until you see the Correlation flow visual tile
 
-![](images/238.png)
+7. Drag & Drop `Cancelled` from **DATA** menu under `Measures` > `flights` to the Filter Shelf
 
-- Click on Engine Type under Dimensions > planes, to add this Field as a filter; you continue to select other Fields that you want to create Filters for and these will also be added
+    - There are several ways to apply filters to visuals within the Dashboard, this is one
 
-![](images/227.png)
+    - When the dialog box comes up:
 
-- Click the drop down arrow next to Engine Type and select any value - the filter(s) are added to the Filter shelf for the Dashboard which is between the Dashboard Title and the Visuals you have been creating.  When you are selecting values from this Filter, the visuals will change to reflect information for just flights where this Engine Type was in the plane for the flight
+    ![](images/234.png)
 
-![](images/240.png)
+    - This will filter this chart to only return flights that have been cancelled and will not return any other data
 
-![](images/241.png)
+8. Click the `REFRESH VISUAL` button
 
-- Click the SAVE button to save the Dashboard
+    ![](images/235.png)
 
-<!---->
+  - **NOTICE**: Since there is a security policy still in effect, you will only see `UA` showing up in this visual. To see all of the Carriers, you could disable the security Policy and Refresh the Visual.
 
-- \[optional] View Dashboard from Visuals page
+9. Click ![](images/236.png) in the bottom right corner of the Correlation flow visual and drag it down to resize this chart to make it a bit larger
 
-  - Click Visuals in the top banner
-  - Dashboards can be shared with other users - use Workspaces to organize and secure content that is created
-  - Create Applications - combine multiple Dashboards to produce an application that allows users to make better decisions
+    ![](images/237.png)
 
--
+10. Click the `enter Title` and enter `Cancellation Correlation`, then hit Enter
 
-***
+11. Click the `SAVE` button to save the Dashboard
+
+### Add prompts - Allow the Dashboard to be Sliced & Diced
+
+This is another way to filter on multiple charts at the same time in your Dashboard
+
+1. On the **DASH.** menu (far right), click on `+Filters` button
+
+    ![](images/238.png)
+
+2. Click on `Engine Type` under `Dimensions` > `planes` to add this Field as a filter.
+
+  - Typically, you could continue to select other Fields that you want to create Filters for and these will also be added.
+
+    ![](images/227.png)
+
+3. Click the drop down arrow next to **Engine Type** and select any value
+
+  - The filter(s) are added to the Filter shelf for the Dashboard which is between the Dashboard Title and the Visuals you have been creating.
+  
+  - When you are selecting values from this Filter, the visuals will change to reflect information for just flights where this Engine Type was in the plane for the flight
+
+    ![](images/240.png)
+
+    ![](images/241.png)
+
+4. Click the `SAVE` button to save the Dashboard
+
+### View the Dashboard from the Visuals Page [Optional]
+
+1. Click `Visuals` in the top banner
+
+  - Dashboards can be shared with other users, using Workspaces to organize and secure content that is created
+
+  - Create Applications to combine multiple Dashboards, producing an application that allows users to make better decisions
